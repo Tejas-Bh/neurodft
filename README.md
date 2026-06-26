@@ -1,5 +1,7 @@
 # neurodft
 
+The first model applying RF coupling to neuromorphic AI.
+
 This is a `numpy` implementation of a neural compute model based on electromagnetic coupling.
 
 The network uses a **gradient-frequency neural network** (Large 2010), in that different portions of the network are resonant to different spectral portions/frequencies of the input signal, similar to the mammalian auditory cortex.
