@@ -1,13 +1,16 @@
 # neurodft
 
-The first model applying RF coupling to neuromorphic AI.
+a unique spiking neural network (SNN) written in `numpy`.
 
-This is a `numpy` implementation of a neural compute model based on electromagnetic coupling.
+---
 
-The network uses a **gradient-frequency neural network** (Large 2010), in that different portions of the network are resonant to different spectral portions/frequencies of the input signal, similar to the mammalian auditory cortex.
+## How it works
+This network consists of a rectangular grid of nodes ("neurons").
 
-This allows spectral decomposition to be an **intrinsic phyiscal property** of the network *(hence the name, neuromorphic-developed-fourier-transform, or neurodft)*.
+Each node has a membrane potential. The model uses "leaky-integrate and fire", a method used to model action potentials in neurons to update and adjust the membrane voltages of each node.
 
-I'm currently working on writing a formal specification for hardware that implements this architecture via WiNoC RF.
+Each node has a resonant frequency. These frequencies are arranged via a gradient from "top" to "bottom" of the grid.
 
-Feel free to reach out at `tejas dot bhagawatula at gmail dot com`!
+When a signal is passed into the network, nodes accumulate membrane voltage and fire based on how much of the node's resosnant frequency is in the original signal.
+
+This allows for the **spectral decomposition** of input signals, similar to a Fourier Transform (hence the name, neuro[morphic] discrete Fourier Transform).
